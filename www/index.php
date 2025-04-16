@@ -9,6 +9,20 @@ $sql = "SELECT * FROM cards";
 $result = mysqli_query($conn, $sql);
 $pokemon_info = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+if(isset($_GET['type'])){
+    $type = $_GET['type'];
+
+    $sql = "SELECT * FROM cards WHERE type = '$type'";
+    $result = mysqli_query($conn,$sql);
+    $pokemon_info = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+    if(empty($type)){
+        $sql = "SELECT * FROM cards";
+        $result = mysqli_query($conn, $sql);
+        $pokemon_info = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -23,10 +37,12 @@ $pokemon_info = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="bg-gray-100">
     <?php include 'navbar.php'; ?>
+    
 
     <!-- Main Content -->
     <div class="w-full">
@@ -40,6 +56,19 @@ $pokemon_info = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
         <!-- Pokemon Grid -->
         <div class="px-8 py-12 mx-auto max-w-7xl">
+
+        <!-- Filter -->
+        <div class="filter">
+            <a href="?type=" class="filter-btn">Alle types</a>
+            <a href="?type=Vuur" class="filter-btn">Vuur</a>
+            <a href="?type=Elektrisch" class="filter-btn">Elektrisch</a>
+            <a href="?type=Water" class="filter-btn">Water</a>
+            <a href="?type=Psychisch" class="filter-btn">Psychisch</a>
+            <a href="?type=Gras" class="filter-btn">Gras</a>
+            <a href="?type=Normaal" class="filter-btn">Normaal</a>
+        </div>
+
+
             <h2 class="mb-8 text-3xl font-bold">Mijn Favoriete Pokémon</h2>
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
 
@@ -53,7 +82,7 @@ $pokemon_info = mysqli_fetch_all($result, MYSQLI_ASSOC);
                         <div class="p-6">
                             <h3 class="mb-2 text-xl font-bold"><?php echo $pokemon["name"]; ?></h3>
                             <p class="mb-4 text-gray-600"><?php echo $pokemon["type"]; ?></p>
-                            <a href="pokemon_detail_simple.php?id=<?php echo $pokemon["id"]; ?>" class="text-blue-600 hover:text-blue-800">Meer informatie →</a>
+                            <a href="pokemon_detail.php?id=<?php echo $pokemon["id"]; ?>" class="text-blue-600 hover:text-blue-800">Meer informatie →</a>
                         </div>
                     </div>
                 <?php } ?>
