@@ -76,7 +76,7 @@ if(isset($_GET['type'])){
                     <!-- Pokemon Card 1 -->
                     <div class="overflow-hidden bg-white rounded-lg shadow-lg">
                         <div class="flex justify-center">
-                            <img src="images/<?php echo $pokemon['image'] ?>" alt="Pikachu"
+                            <img src="https://www.serebii.net/art/th/<?php echo $pokemon['image'] ?>.png" alt="Pikachu"
                                 class="object-contain w-full h-64">
                         </div>
                         <div class="p-6">

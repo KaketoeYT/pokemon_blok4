@@ -35,7 +35,7 @@ $pokemon = mysqli_fetch_assoc($result);
                 <div class="flex flex-col items-center">
                     <h1 class="text-4xl font-bold text-gray-800 mb-6"><?php echo $pokemon['name']; ?></h1>
                     <div class="w-64 h-64 mb-6 rounded-lg overflow-hidden shadow-md">
-                        <img src="images/<?php echo $pokemon['image']; ?>"
+                        <img src="https://www.serebii.net/art/th/<?php echo $pokemon['image'] ?>.png"
                             alt="<?php echo $pokemon['name']; ?>"
                             class="w-full h-full object-cover">
                     </div>
@@ -61,6 +61,7 @@ $pokemon = mysqli_fetch_assoc($result);
                         <div class="bg-gray-50 p-6 rounded-lg">
                             <h2 class="text-xl font-semibold mb-4">Basis Informatie</h2>
                             <div class="space-y-2">
+                                <p><span class="font-medium">Pokedex nummer:</span> <?php echo $pokemon['image']; ?></p>
                                 <p><span class="font-medium">Hoogte:</span> <?php echo $pokemon['height']; ?> m</p>
                                 <p><span class="font-medium">Gewicht:</span> <?php echo $pokemon['weight']; ?> kg</p>
                                 <p><span class="font-medium">Evolutie Stadium:</span> <?php echo $pokemon['evolution_stage']; ?></p>

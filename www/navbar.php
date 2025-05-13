@@ -5,6 +5,7 @@
                 <a href="index.php">Mijn Pokemon verzameling</a>
             </div>
             <ul class="flex space-x-6">
+                <li><a href="login.php" class="text-gray-300 hover:text-white">Log in</a></li>
                 <li><a href="index.php" class="text-gray-300 hover:text-white">Home</a></li>
                 <li><a href="#" class="text-gray-300 hover:text-white">Mijn Verzameling</a></li>
                 <li><a href="#" class="text-gray-300 hover:text-white">Zeldzame Pokémon</a></li>
